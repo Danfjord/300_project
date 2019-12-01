@@ -72,5 +72,4 @@ public class Service {
         return null;
     }
 
-    public static
 }
