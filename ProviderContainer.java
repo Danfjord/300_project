@@ -2,6 +2,15 @@ import java.sql.*;
 
 
 public class ProviderContainer {
+
+    private static final String url = "jdbc:mysql://localhost:3306/MySQL80";
+    private static final String user = "ProviderGW";
+    private static final String password = "Password!";
+
+    private static Connection con;
+    private static Statement stmt;
+    private static ResultSet rs;
+
     public String provider_name;
     public int provider_number;
     public String provider_address;
@@ -20,5 +29,17 @@ public class ProviderContainer {
 
             //This is where the provider_services will be picked up
 
+    }
+    public static ProviderContainer GetProviderInfo(int providernum) throws Exception{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(url, user, password);
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("select providernumber from provider.providerinfo where providernumber =  " + providernum);
+            return new ProviderContainer(rs);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
     }
 }
