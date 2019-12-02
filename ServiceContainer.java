@@ -1,3 +1,7 @@
+/*
+This is the ServiceContainer class. It is used as an object in the Service class. 
+ */
+
 import java.sql.*;
 
 public class ServiceContainer {
