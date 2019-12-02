@@ -10,7 +10,8 @@ public class Validation {
     private static Statement stmt;
     private static ResultSet rs;
 
-    public boolean IsValid(int memnum) throws Exception {
+    public String CheckStatus(int memnum) throws Exception {
+        String nope = "User not found.";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(url, user, password);
@@ -18,12 +19,11 @@ public class Validation {
             rs = stmt.executeQuery("select idnumber from validation.idnum where idnumber = " + memnum);
 
             if (rs != null) {
-                if (rs.getString(2) == "Validated") {
-                    return true;
-                } else {
-                    return false;
-                }
+                return rs.getString(2);
+            } else {
+                return nope;
             }
+            
         } catch (Exception e) {
             System.out.println(e);
         }
