@@ -1,7 +1,12 @@
+/*
+This is the validation class. It's only role is to validate member ids.
+It has a member number associated with a string describing the member status.
+ */
+
 import java.sql.*;
 
 public class Validation {
-
+    //SQL junk
     private static final String url = "jdbc:mysql://localhost:3306/MySQL80";
     private static final String user = "ProviderGW";
     private static final String password = "Password!";
@@ -10,6 +15,7 @@ public class Validation {
     private static Statement stmt;
     private static ResultSet rs;
 
+    //Checks member status and returns whatever string is associated with the number.
     public String CheckStatus(int memnum) throws Exception {
         String nope = "User not found.";
         try {
@@ -23,13 +29,14 @@ public class Validation {
             } else {
                 return nope;
             }
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
-        return false;
+        return nope;
     }
 
+    //This adds or changes a member and/or their status.
     public boolean AddChangeMemberStatus(int memnum, String status) throws Exception {
         try {
             Class.forName("com.mysql.jdbc.Driver");

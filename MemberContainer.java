@@ -1,3 +1,8 @@
+/*
+This is the MemberContainer class. It is an object that is used for member reports as well as updating
+or adding members.
+ */
+
 import java.sql.*;
 
 public class MemberContainer {
