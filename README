@@ -1,0 +1,37 @@
+===========================
+KEY
+
+valid provider codes: 198345 , 114685 , 193751
+valid manager codes: 111 , 555 (change)
+
+===========================
+
+Services
+
+service1:
+ID code: 15532
+Service Name: Aerobics exercise session
+Service Fee: $150
+
+service2:
+ID code: 27350
+Service Name: Dietitian appointment
+Service Fee: $100
+
+service3:
+ID code: 30098
+Service Name: Weights class
+Service Fee: $125
+
+===========================
+
+ERROR 1
+
+File > Provider.java
+Method > LinkedList<Provider> removeProvider(int providerID, LinkedList<Provider> providerList)
+
+My goal is to remove a provider given the providerID, but this method is only removing the head
+of provider.
+
+===========================
+
